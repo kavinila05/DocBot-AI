@@ -6,7 +6,7 @@ from llm.ollama_llm import load_llm
 from langchain.chains import RetrievalQA
 
 st.set_page_config(page_title="DocBot", layout="wide")
-st.title("📄🤖 DocBot – Ask Your Document")
+st.title(" DocBot – Ask Your Document")
 
 uploaded_file = st.file_uploader(
     "Upload a document",
@@ -29,11 +29,11 @@ if uploaded_file:
         retriever=vectordb.as_retriever()
     )
 
-    st.success("✅ Document processed successfully!")
+    st.success(" Document processed successfully!")
 
     query = st.text_input("Ask a question from the document:")
 
     if query:
         with st.spinner("Thinking..."):
             answer = qa.run(query)
-        st.markdown(f"### 🧠 Answer:\n{answer}")
+        st.markdown(f"###  Answer:\n{answer}")
